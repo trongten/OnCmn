@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Bao Cao</h1>
+    <table class="table table-triped">
+        <thead class="thead-dark">
+            <th>STT</th>
+            <th>Ten</th>
+            <th>TacGia</th>
+            <th>ISBN</th>
+            <th>So Trang</th>
+            <th>Nam</th>
+            <th></th>
+            <th></th>
+        </thead>
+
+        <% for ([i,d] of data.entries()) { %>
+        <tr>
+            <td><%=i+1%></td>
+            <td><%=d.ten%></td>
+            <td><%=d.tacgia%></td>
+            <td><%=d.isbn%></td>
+            <td><%=d.sotrang%></td>
+            <td><%=d.nam%></td>
+            <td>
+                <form action="/update" method="post" enctype="multipart/form-data"> 
+                    <input type="hidden" name="up" value="<%=d.ma%>">
+                    <input class="btn btn-warning" type="submit" value="Update"></form>
+            </td>
+            <td>
+                <form action="/delete" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="del" value="<%=d.ma%>">
+                    <input class="btn btn-danger" type="submit" value="DELETE">
+                </form>
+            </td>
+        </tr>
+        <%}%>
+    </table>
+
+    <form action="/create" method="get">\
+        <input class="btn btn-primary" type="submit" value="ADD">
+    </form>
+
+</body>
+</html>

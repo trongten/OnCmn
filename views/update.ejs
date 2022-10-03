@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-2"></div>
+
+        <form  class="form col-lg-8" action="/create" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="ma" value="<%=data.ma%>">
+          Ten Bao Cao  <input class="form-control" value="<%=data.ten%>" type="text" name="ten" required>
+          Tac Gia  <input class="form-control" value="<%=data.tacgia%>" type="text" name="tacgia" required>
+          Chi so ISBN  <input class="form-control" value="<%=data.isbn%>" type="text" name="isbn" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" title="Format :  XXX-XXX-XXX">
+          So Trang  <input class="form-control" value="<%=data.sotrang%>" type="number" name="sotrang" required min="4">
+          Nam  <input class="form-control" value="<%=data.nam%>" type="number" name="nam"  required min="1900" max="2022">
+            <input type="submit" class="btn btn-primary" value="ADD">
+        </form>
+
+    </div>
+</body>
+</html>
